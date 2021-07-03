@@ -16,7 +16,7 @@ mkdir phoenix
 cd phoenix
 
 echo "Cloning dependencies"
-git clone --depth=1  https://github.com/phoenix-1708/PhoenixKernel.git -b NonOC-reb
+git clone --depth=1  https://github.com/PixelExperience-Devices/kernel_xiaomi_tissot.git -b eleven
 cd PhoenixKernel
 git clone --depth=1 -b master https://github.com/kdrag0n/proton-clang clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
@@ -34,7 +34,7 @@ export KBUILD_BUILD_USER=phoenix-1708
 export KBUILD_BUILD_HOST=circleci
 # Compile plox
 function compile() {
-    make -j$(nproc --all) O=out ARCH=arm64 phoenix-tissot_defconfig
+    make -j$(nproc --all) O=out ARCH=arm64 tissot_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
                           CC=clang \
