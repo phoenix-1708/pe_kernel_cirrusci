@@ -10,7 +10,7 @@ git config --global color.ui true
 
 # mkdir -p /tmp/rom # Where to sync source
 # cd /tmp/rom
-git clone https://github.com/akhilnarang/scripts && cd scripts && bash setup/android_build_env.sh && cd ..
+git clone https://github.com/phoenix-1708/scripts.git && cd scripts && bash setup/android_build_env.sh && cd ..
 
 mkdir phoenix
 cd phoenix
@@ -70,8 +70,7 @@ function zipping() {
     zip -r9 PhoenixKernel_NonOC.zip *
     cd $SEND_DIR   || exit 1
     echo "Changing Dir to Send FIle"
-    ./telegram -t 1858827137:AAFZVaKOjAhjVyCXfiGgL-SK6dp7_lILZIE -c -1001521910426 -f $REPACK_DIR/PhoenixKernel_NonOC.zip
-"Zip Sent through Semaphore CI"
+    ./telegram -t 1858827137:AAFZVaKOjAhjVyCXfiGgL-SK6dp7_lILZIE -c -1001521910426 -f $REPACK_DIR/PhoenixKernel_NonOC.zip "Zip Sent through Semaphore CI"
    #curl --upload-file ./PhoenixKernel_NonOC.zip https://transfer.sh/PhoenixKernel_NonOC.zip
 }
 compile
