@@ -15,7 +15,7 @@ mkdir phoenix
 cd phoenix
 
 echo "Cloning dependencies"
-git clone --depth=1  https://github.com/phoenix-1708/PE_Kernel.git -b eleven
+git clone --depth=1  https://github.com/phoenix-1708/PhoenixKernel.git -b NonOC-reb
 cd PhoenixKernel
 git clone --depth=1 -b master https://github.com/kdrag0n/proton-clang clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
@@ -33,12 +33,12 @@ export KBUILD_BUILD_USER=phoenix-1708
 export KBUILD_BUILD_HOST=circleci
 # Compile plox
 function compile() {
-    make -j$(nproc --all) O=out ARCH=arm64 tissot_defconfig
+    make -j$(nproc --all) O=out ARCH=arm64 phoenix-tissot_defconfig
     make -j$(nproc --all) O=out \
-                    ARCH=arm64 \
-                      CC=clang \
-                      CROSS_COMPILE=aarch64-linux-gnu- \
-                      CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+                          ARCH=arm64 \
+                          CC=clang \
+                          CROSS_COMPILE=aarch64-linux-gnu- \
+                          CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 
     cd $REPACK_DIR
     mkdir kernel
@@ -66,12 +66,12 @@ function compile() {
 # Zipping
 function zipping() {
     cd $REPACK_DIR || exit 1
-    zip -r9 PhoenixKernel_PE.zip *
+    zip -r9 PhoenixKernel_NonOC.zip *
     cd $SEND_DIR   || exit 1
     echo "Changing Dir to Send FIle"
-    ./telegram -t 1858827137:AAFZVaKOjAhjVyCXfiGgL-SK6dp7_lILZIE -c -1001521910426 -f $REPACK_DIR/PhoenixKernel_PE.zip
+    ./telegram -t 1858827137:AAFZVaKOjAhjVyCXfiGgL-SK6dp7_lILZIE -c -1001521910426 -f $REPACK_DIR/PhoenixKernel_NonOC.zip
 "Zip Sent through Semaphore CI"
-   #curl --upload-file ./PhoenixKernel_PE.zip https://transfer.sh/PhoenixKernel_PE.zip
+   #curl --upload-file ./PhoenixKernel_NonOC.zip https://transfer.sh/PhoenixKernel_NonOC.zip
 }
 compile
 zipping
