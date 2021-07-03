@@ -16,8 +16,8 @@ mkdir phoenix
 cd phoenix
 
 echo "Cloning dependencies"
-git clone --depth=1  https://github.com/PixelExperience-Devices/kernel_xiaomi_tissot.git -b eleven
-cd kernel_xiaomi_tissot
+git clone --depth=1  https://github.com/Unknownbitch07/kernel.git -b 11.0
+cd kernel
 git clone --depth=1 -b master https://github.com/kdrag0n/proton-clang clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
 git clone https://github.com/fabianonline/telegram.sh.git  -b master
