@@ -1,4 +1,5 @@
 #!/bin/bash
+mkdir -p /tmp/rom
 cd /tmp/rom # Depends on where source got synced
 
 sudo apt-get -y update && sudo apt-get -y upgrade && sudo apt-get -y install git gh bc build-essential zip curl libstdc++6 git wget python python2 gcc clang libssl-dev openssl repo rsync flex bison gcc-aarch64-linux-gnu
