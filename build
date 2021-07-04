@@ -16,7 +16,7 @@ mkdir phoenix
 cd phoenix
 
 echo "Cloning dependencies"
-git clone --depth=1  https://github.com/Unknownbitch07/kernel.git -b 11.0
+git clone --depth=1  https://github.com/dotOS-Devices/android_kernel_xiaomi_tissot.git -b dot11
 cd kernel
 git clone --depth=1 -b master https://github.com/kdrag0n/proton-clang clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
@@ -70,7 +70,7 @@ function zipping() {
     zip -r9 PhoenixKernel_NonOC.zip *
     cd $SEND_DIR   || exit 1
     echo "Changing Dir to Send FIle"
-    ./telegram -t 1858827137:AAFZVaKOjAhjVyCXfiGgL-SK6dp7_lILZIE -c -1001521910426 -f $REPACK_DIR/PhoenixKernel_NonOC.zip "Zip Sent through Semaphore CI"
+    ./telegram -t 1858827137:AAFZVaKOjAhjVyCXfiGgL-SK6dp7_lILZIE -c -1001521910426 -f $REPACK_DIR/PhoenixKernel_NonOC.zip "Zip Sent through Cirrus CI"
    #curl --upload-file ./PhoenixKernel_NonOC.zip https://transfer.sh/PhoenixKernel_NonOC.zip
 }
 compile
