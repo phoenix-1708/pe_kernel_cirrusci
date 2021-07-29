@@ -16,8 +16,8 @@ mkdir phoenix
 cd phoenix
 
 echo "Cloning dependencies"
-git clone --depth=1  https://github.com/phoenix-1708/PE_Kernel.git -b 11.0
-cd PE_Kernel
+git clone --depth=1  https://github.com/phoenix-1708/android_kernel_xiaomi_sweet.git -b arrow-11.0
+cd android_kernel_xiaomi_sweet
 git clone --depth=1 -b master https://github.com/kdrag0n/proton-clang clang
 git clone https://github.com/phoenix-1708/Anykernel3-Tissot.git  --depth=1 AnyKernel
 git clone https://github.com/fabianonline/telegram.sh.git  -b master
@@ -34,7 +34,7 @@ export KBUILD_BUILD_USER=phoenix-1708
 export KBUILD_BUILD_HOST=cirrusci
 # Compile plox
 function compile() {
-    make -j$(nproc --all) O=out ARCH=arm64 tissot_defconfig
+    make -j$(nproc --all) O=out ARCH=arm64 sweet_user_defconfig
     make -j$(nproc --all) O=out \
                           ARCH=arm64 \
                           CC=clang \
